@@ -1,0 +1,918 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: '3'
+    field.cattle.io/publicEndpoints: >-
+      [{"addresses":["34.95.211.16"],"port":80,"protocol":"TCP","serviceName":"ingress-kong:kong-kong-proxy","allNodes":false},{"addresses":["34.95.211.16"],"port":443,"protocol":"TCP","serviceName":"ingress-kong:kong-kong-proxy","allNodes":false}]
+    meta.helm.sh/release-name: kong
+    meta.helm.sh/release-namespace: ingress-kong
+  creationTimestamp: '2022-08-19T20:41:28Z'
+  generation: 8637
+  labels:
+    app.kubernetes.io/component: app
+    app.kubernetes.io/instance: kong
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: kong
+    app.kubernetes.io/version: '3.3'
+    helm.sh/chart: kong-2.27.0
+  managedFields:
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:replicas: {}
+      manager: vpa-recommender
+      operation: Update
+      subresource: scale
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+        f:spec:
+          f:progressDeadlineSeconds: {}
+          f:revisionHistoryLimit: {}
+          f:selector: {}
+          f:strategy:
+            f:rollingUpdate:
+              .: {}
+              f:maxSurge: {}
+              f:maxUnavailable: {}
+            f:type: {}
+          f:template:
+            f:metadata:
+              f:annotations:
+                .: {}
+                f:kuma.io/gateway: {}
+                f:kuma.io/service-account-token-volume: {}
+                f:traffic.sidecar.istio.io/includeInboundPorts: {}
+              f:labels:
+                .: {}
+                f:app: {}
+                f:app.kubernetes.io/component: {}
+                f:app.kubernetes.io/instance: {}
+                f:app.kubernetes.io/managed-by: {}
+                f:app.kubernetes.io/name: {}
+            f:spec:
+              f:automountServiceAccountToken: {}
+              f:containers:
+                k:{"name":"ingress-controller"}:
+                  .: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"CONTROLLER_ELECTION_ID"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CONTROLLER_INGRESS_CLASS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CONTROLLER_KONG_ADMIN_TLS_SKIP_VERIFY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CONTROLLER_KONG_ADMIN_URL"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CONTROLLER_PUBLISH_SERVICE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"POD_NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                    k:{"name":"POD_NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:livenessProbe:
+                    .: {}
+                    f:failureThreshold: {}
+                    f:httpGet:
+                      .: {}
+                      f:path: {}
+                      f:port: {}
+                      f:scheme: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:timeoutSeconds: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":10255,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                  f:readinessProbe:
+                    .: {}
+                    f:failureThreshold: {}
+                    f:httpGet:
+                      .: {}
+                      f:path: {}
+                      f:port: {}
+                      f:scheme: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:timeoutSeconds: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                    f:requests:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                  f:securityContext: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/var/run/secrets/kubernetes.io/serviceaccount"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                      f:readOnly: {}
+                k:{"name":"proxy"}:
+                  .: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"KONG_ADMIN_ACCESS_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_ADMIN_ERROR_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_ADMIN_GUI_ACCESS_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_ADMIN_GUI_ERROR_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_ADMIN_LISTEN"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_CLUSTER_LISTEN"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_DATABASE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_KIC"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_LUA_PACKAGE_PATH"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_NGINX_DAEMON"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_NGINX_WORKER_PROCESSES"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_PLUGINS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_PORT_MAPS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_PORTAL_API_ACCESS_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_PORTAL_API_ERROR_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_PREFIX"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_PROXY_ACCESS_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_PROXY_ERROR_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_PROXY_LISTEN"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_PROXY_STREAM_ACCESS_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_PROXY_STREAM_ERROR_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_STATUS_ACCESS_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_STATUS_ERROR_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_STATUS_LISTEN"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_STREAM_LISTEN"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:lifecycle:
+                    .: {}
+                    f:preStop:
+                      .: {}
+                      f:exec:
+                        .: {}
+                        f:command: {}
+                  f:livenessProbe:
+                    .: {}
+                    f:failureThreshold: {}
+                    f:httpGet:
+                      .: {}
+                      f:path: {}
+                      f:port: {}
+                      f:scheme: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:timeoutSeconds: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":8000,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                    k:{"containerPort":8100,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                    k:{"containerPort":8443,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                  f:readinessProbe:
+                    .: {}
+                    f:failureThreshold: {}
+                    f:httpGet:
+                      .: {}
+                      f:path: {}
+                      f:port: {}
+                      f:scheme: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:timeoutSeconds: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                    f:requests:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                  f:securityContext: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/kong_prefix/"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/tmp"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:initContainers:
+                .: {}
+                k:{"name":"clear-stale-pid"}:
+                  .: {}
+                  f:command: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"KONG_ADMIN_ACCESS_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_ADMIN_ERROR_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_ADMIN_GUI_ACCESS_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_ADMIN_GUI_ERROR_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_ADMIN_LISTEN"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_CLUSTER_LISTEN"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_DATABASE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_KIC"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_LUA_PACKAGE_PATH"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_NGINX_WORKER_PROCESSES"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_PLUGINS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_PORT_MAPS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_PORTAL_API_ACCESS_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_PORTAL_API_ERROR_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_PREFIX"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_PROXY_ACCESS_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_PROXY_ERROR_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_PROXY_LISTEN"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_PROXY_STREAM_ACCESS_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_PROXY_STREAM_ERROR_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_STATUS_ACCESS_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_STATUS_ERROR_LOG"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_STATUS_LISTEN"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_STREAM_LISTEN"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                    f:requests:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                  f:securityContext: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/kong_prefix/"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/tmp"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:nodeSelector: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:volumes:
+                .: {}
+                k:{"name":"kong-kong-prefix-dir"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:sizeLimit: {}
+                  f:name: {}
+                k:{"name":"kong-kong-tmp"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:sizeLimit: {}
+                  f:name: {}
+                k:{"name":"kong-kong-token"}:
+                  .: {}
+                  f:name: {}
+      manager: terraform-provider-helm_v2.6.0_x5
+      operation: Update
+      time: '2022-08-19T20:41:28Z'
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:field.cattle.io/publicEndpoints: {}
+      manager: rancher
+      operation: Update
+      time: '2022-08-19T20:44:31Z'
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+        f:spec:
+          f:template:
+            f:metadata:
+              f:labels:
+                f:app.kubernetes.io/version: {}
+                f:helm.sh/chart: {}
+                f:version: {}
+            f:spec:
+              f:containers:
+                k:{"name":"ingress-controller"}:
+                  f:securityContext:
+                    f:readOnlyRootFilesystem: {}
+                k:{"name":"proxy"}:
+                  f:env:
+                    k:{"name":"KONG_ROUTER_FLAVOR"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:securityContext:
+                    f:readOnlyRootFilesystem: {}
+              f:initContainers:
+                k:{"name":"clear-stale-pid"}:
+                  f:env:
+                    k:{"name":"KONG_ROUTER_FLAVOR"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:securityContext:
+                    f:readOnlyRootFilesystem: {}
+              f:volumes:
+                k:{"name":"kong-kong-token"}:
+                  f:projected:
+                    .: {}
+                    f:defaultMode: {}
+                    f:sources: {}
+      manager: helm
+      operation: Update
+      time: '2023-09-13T13:32:34Z'
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:deployment.kubernetes.io/revision: {}
+        f:status:
+          f:availableReplicas: {}
+          f:conditions:
+            .: {}
+            k:{"type":"Available"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Progressing"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:observedGeneration: {}
+          f:readyReplicas: {}
+          f:replicas: {}
+          f:updatedReplicas: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: '2023-10-11T14:01:17Z'
+  name: kong-kong
+  namespace: ingress-kong
+  resourceVersion: '1090038972'
+  uid: 213121eb-5394-4e07-a359-3f64301cc5bb
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: app
+      app.kubernetes.io/instance: kong
+      app.kubernetes.io/name: kong
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        kuma.io/gateway: enabled
+        kuma.io/service-account-token-volume: kong-kong-token
+        traffic.sidecar.istio.io/includeInboundPorts: ''
+      creationTimestamp: null
+      labels:
+        app: kong-kong
+        app.kubernetes.io/component: app
+        app.kubernetes.io/instance: kong
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/name: kong
+        app.kubernetes.io/version: '3.3'
+        helm.sh/chart: kong-2.27.0
+        version: '3.3'
+    spec:
+      automountServiceAccountToken: false
+      containers:
+        - env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.namespace
+            - name: CONTROLLER_ELECTION_ID
+              value: kong-ingress-controller-leader-kong
+            - name: CONTROLLER_INGRESS_CLASS
+              value: kong
+            - name: CONTROLLER_KONG_ADMIN_TLS_SKIP_VERIFY
+              value: 'true'
+            - name: CONTROLLER_KONG_ADMIN_URL
+              value: https://localhost:8444
+            - name: CONTROLLER_PUBLISH_SERVICE
+              value: ingress-kong/kong-kong-proxy
+          image: kong/kubernetes-ingress-controller:2.5
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /healthz
+              port: 10254
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
+          name: ingress-controller
+          ports:
+            - containerPort: 10255
+              name: cmetrics
+              protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /healthz
+              port: 10254
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
+          resources:
+            limits:
+              cpu: 100m
+              memory: 256Mi
+            requests:
+              cpu: 50m
+              memory: 128Mi
+          securityContext:
+            readOnlyRootFilesystem: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+            - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+              name: kong-kong-token
+              readOnly: true
+        - env:
+            - name: KONG_ADMIN_ACCESS_LOG
+              value: /dev/stdout
+            - name: KONG_ADMIN_ERROR_LOG
+              value: /dev/stderr
+            - name: KONG_ADMIN_GUI_ACCESS_LOG
+              value: /dev/stdout
+            - name: KONG_ADMIN_GUI_ERROR_LOG
+              value: /dev/stderr
+            - name: KONG_ADMIN_LISTEN
+              value: 127.0.0.1:8444 http2 ssl
+            - name: KONG_CLUSTER_LISTEN
+              value: 'off'
+            - name: KONG_DATABASE
+              value: 'off'
+            - name: KONG_KIC
+              value: 'on'
+            - name: KONG_LUA_PACKAGE_PATH
+              value: /opt/?.lua;/opt/?/init.lua;;
+            - name: KONG_NGINX_WORKER_PROCESSES
+              value: '2'
+            - name: KONG_PLUGINS
+              value: bundled
+            - name: KONG_PORTAL_API_ACCESS_LOG
+              value: /dev/stdout
+            - name: KONG_PORTAL_API_ERROR_LOG
+              value: /dev/stderr
+            - name: KONG_PORT_MAPS
+              value: 80:8000, 443:8443
+            - name: KONG_PREFIX
+              value: /kong_prefix/
+            - name: KONG_PROXY_ACCESS_LOG
+              value: /dev/stdout
+            - name: KONG_PROXY_ERROR_LOG
+              value: /dev/stderr
+            - name: KONG_PROXY_LISTEN
+              value: 0.0.0.0:8000, 0.0.0.0:8443 http2 ssl
+            - name: KONG_PROXY_STREAM_ACCESS_LOG
+              value: /dev/stdout basic
+            - name: KONG_PROXY_STREAM_ERROR_LOG
+              value: /dev/stderr
+            - name: KONG_ROUTER_FLAVOR
+              value: traditional
+            - name: KONG_STATUS_ACCESS_LOG
+              value: 'off'
+            - name: KONG_STATUS_ERROR_LOG
+              value: /dev/stderr
+            - name: KONG_STATUS_LISTEN
+              value: 0.0.0.0:8100
+            - name: KONG_STREAM_LISTEN
+              value: 'off'
+            - name: KONG_NGINX_DAEMON
+              value: 'off'
+          image: kong:2.8
+          imagePullPolicy: IfNotPresent
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                  - kong
+                  - quit
+                  - '--wait=15'
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /status
+              port: status
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
+          name: proxy
+          ports:
+            - containerPort: 8000
+              name: proxy
+              protocol: TCP
+            - containerPort: 8443
+              name: proxy-tls
+              protocol: TCP
+            - containerPort: 8100
+              name: status
+              protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /status
+              port: status
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
+          resources:
+            limits:
+              cpu: 200m
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 256Mi
+          securityContext:
+            readOnlyRootFilesystem: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+            - mountPath: /kong_prefix/
+              name: kong-kong-prefix-dir
+            - mountPath: /tmp
+              name: kong-kong-tmp
+      dnsPolicy: ClusterFirst
+      initContainers:
+        - command:
+            - rm
+            - '-vrf'
+            - $KONG_PREFIX/pids
+          env:
+            - name: KONG_ADMIN_ACCESS_LOG
+              value: /dev/stdout
+            - name: KONG_ADMIN_ERROR_LOG
+              value: /dev/stderr
+            - name: KONG_ADMIN_GUI_ACCESS_LOG
+              value: /dev/stdout
+            - name: KONG_ADMIN_GUI_ERROR_LOG
+              value: /dev/stderr
+            - name: KONG_ADMIN_LISTEN
+              value: 127.0.0.1:8444 http2 ssl
+            - name: KONG_CLUSTER_LISTEN
+              value: 'off'
+            - name: KONG_DATABASE
+              value: 'off'
+            - name: KONG_KIC
+              value: 'on'
+            - name: KONG_LUA_PACKAGE_PATH
+              value: /opt/?.lua;/opt/?/init.lua;;
+            - name: KONG_NGINX_WORKER_PROCESSES
+              value: '2'
+            - name: KONG_PLUGINS
+              value: bundled
+            - name: KONG_PORTAL_API_ACCESS_LOG
+              value: /dev/stdout
+            - name: KONG_PORTAL_API_ERROR_LOG
+              value: /dev/stderr
+            - name: KONG_PORT_MAPS
+              value: 80:8000, 443:8443
+            - name: KONG_PREFIX
+              value: /kong_prefix/
+            - name: KONG_PROXY_ACCESS_LOG
+              value: /dev/stdout
+            - name: KONG_PROXY_ERROR_LOG
+              value: /dev/stderr
+            - name: KONG_PROXY_LISTEN
+              value: 0.0.0.0:8000, 0.0.0.0:8443 http2 ssl
+            - name: KONG_PROXY_STREAM_ACCESS_LOG
+              value: /dev/stdout basic
+            - name: KONG_PROXY_STREAM_ERROR_LOG
+              value: /dev/stderr
+            - name: KONG_ROUTER_FLAVOR
+              value: traditional
+            - name: KONG_STATUS_ACCESS_LOG
+              value: 'off'
+            - name: KONG_STATUS_ERROR_LOG
+              value: /dev/stderr
+            - name: KONG_STATUS_LISTEN
+              value: 0.0.0.0:8100
+            - name: KONG_STREAM_LISTEN
+              value: 'off'
+          image: kong:2.8
+          imagePullPolicy: IfNotPresent
+          name: clear-stale-pid
+          resources:
+            limits:
+              cpu: 200m
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 256Mi
+          securityContext:
+            readOnlyRootFilesystem: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+            - mountPath: /kong_prefix/
+              name: kong-kong-prefix-dir
+            - mountPath: /tmp
+              name: kong-kong-tmp
+      nodeSelector:
+        node_pool: k8s-fixos
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: kong-kong
+      serviceAccountName: kong-kong
+      terminationGracePeriodSeconds: 30
+      volumes:
+        - emptyDir:
+            sizeLimit: 256Mi
+          name: kong-kong-prefix-dir
+        - emptyDir:
+            sizeLimit: 1Gi
+          name: kong-kong-tmp
+        - name: kong-kong-token
+          projected:
+            defaultMode: 420
+            sources:
+              - serviceAccountToken:
+                  expirationSeconds: 3607
+                  path: token
+              - configMap:
+                  items:
+                    - key: ca.crt
+                      path: ca.crt
+                  name: kube-root-ca.crt
+              - downwardAPI:
+                  items:
+                    - fieldRef:
+                        apiVersion: v1
+                        fieldPath: metadata.namespace
+                      path: namespace
+status:
+  availableReplicas: 1
+  conditions:
+    - lastTransitionTime: '2022-08-19T20:41:28Z'
+      lastUpdateTime: '2023-09-13T13:33:36Z'
+      message: ReplicaSet "kong-kong-57b985bb54" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: 'True'
+      type: Progressing
+    - lastTransitionTime: '2023-10-11T13:54:50Z'
+      lastUpdateTime: '2023-10-11T13:54:50Z'
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: 'True'
+      type: Available
+  observedGeneration: 8637
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1
