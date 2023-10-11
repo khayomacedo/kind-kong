@@ -1,14 +1,11 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Application
 metadata:
+  name: prometheus
+  namespace: argocd
   annotations:
-    deployment.kubernetes.io/revision: '3'
-    field.cattle.io/publicEndpoints: >-
-      [{"addresses":["34.95.211.16"],"port":80,"protocol":"TCP","serviceName":"ingress-kong:kong-kong-proxy","allNodes":false},{"addresses":["34.95.211.16"],"port":443,"protocol":"TCP","serviceName":"ingress-kong:kong-kong-proxy","allNodes":false}]
     meta.helm.sh/release-name: kong
     meta.helm.sh/release-namespace: ingress-kong
-  creationTimestamp: '2022-08-19T20:41:28Z'
-  generation: 8637
   labels:
     app.kubernetes.io/component: app
     app.kubernetes.io/instance: kong
@@ -581,8 +578,6 @@ metadata:
       time: '2023-10-11T14:01:17Z'
   name: kong-kong
   namespace: ingress-kong
-  resourceVersion: '1090038972'
-  uid: 213121eb-5394-4e07-a359-3f64301cc5bb
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
